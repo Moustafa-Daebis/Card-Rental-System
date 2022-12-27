@@ -26,6 +26,16 @@ body {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+.center1 {
+    position: center;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+ 
+}
 h1 {
   font-size: 5em; 
   text-align: center;
@@ -56,23 +66,23 @@ backdrop-filter: blur(10px);
   <br>
   <br>
   <h1>Car rental services</h1>
+  <br>
+  <br>
+  <h2>How can we help you!</h2>
 </div>
   <div class="container">
   <div class="center">
-    <h2>Admin</h2>
-      <button class="button" onclick="window.location.href='http://localhost/AdminLoginform.php'">
-      Log in
+      <button class="button" onclick="window.location.href='http://localhost/res1.php'">
+      Reserve a new car!
     </button>
-    <button class="button" onclick="window.location.href='file:///C:/xampp/htdocs/final_project/Adminregform.html';">
-      Register
+    <button class="button" onclick="window.location.href='http://localhost/info.php'">
+      Infromation!
     </button>
-    <h2>Customer</h2>
-      <button class="button" onclick="window.location.href='http://localhost/UserLoginform.php'">
-      Log in
+      <div class="center1">
+    <button class="button"  onclick="window.location.href='http://localhost/UserLoginform.php'">
+      Back
     </button>
-      <button class="button" onclick="window.location.href='http://localhost/userregform.php'">
-      Register
-    </button>
+    </div>
   </div>
 </div>
 
