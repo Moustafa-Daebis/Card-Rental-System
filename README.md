@@ -57,6 +57,7 @@ time date default current_timestamp()	;
 
 create table reservation(
 res_id int AUTO_INCREMENT ,
+res_date date,
 E_mail varchar(255) not null,
 office_id int not null,
 plat_id varchar(225) not null,
