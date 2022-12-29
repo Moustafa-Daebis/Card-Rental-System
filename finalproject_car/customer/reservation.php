@@ -76,6 +76,12 @@ backdrop-filter: blur(10px);
                 <tr><td>model:</td><td><input type="text"  name="model"  placeholder="Enter model">
                 <tr><td>from:</td><td><input type="date"  name="from"  placeholder="Enter start time">
                 <tr><td>to:</td><td><input type="date"  name="to"  placeholder="Enter end time">
+                <tr><td>Pay now:                 <select name="paid" id="paid">
+                <option value="YES">    yes</option>
+                <option value="NO">    no</option>
+                </select>
+                </td><td> 
+                <tr><td>Pay date:</td><td>  <input type="date"  name="paid_date"  placeholder="Enter end time">
                 <tr><td></td><td><input type='submit' name='submit' id="submit" value='Submit'/> <input type='button' name='back' id="back" value='back' onclick="window.location.href='http://localhost/finalproject_car/customer/customer.php'"> <input type="reset"></td></tr> 
                 </table>
         </form>
