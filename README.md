@@ -90,6 +90,10 @@ ADD FOREIGN KEY (plat_id) REFERENCES car(plat_id);
 ALTER TABLE car
 ADD FOREIGN KEY (office_id) REFERENCES office(office_id);
 
+ALTER TABLE res_cont ADD FOREIGN KEY (E_mail) REFERENCES reservation(E_mail) ON UPDATE CASCADE on DELETE CASCADE;
+ALTER TABLE res_cont ADD FOREIGN KEY (res_id) REFERENCES reservation(res_id) ON UPDATE CASCADE on DELETE CASCADE;
+
+
 
 
 
