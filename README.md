@@ -12,7 +12,6 @@ create table car_status( plate_id varchar(255), car_st enum('available','rented'
 
 create table reservation( res_id int AUTO_INCREMENT , res_date date, E_mail varchar(255) not null, office_id int not null, plate_id varchar(225) not null, `from` date not null, `to` date not null, payment double not null, paid boolean not null, paid_date datetime not null, primary key (res_id,E_mail,plate_id,`from`,`to`) );
 
-create table res_count( res_id int not null , E_mail varchar(255) not null, primary key (res_id,E_mail) );
 
 ALTER TABLE reservation ADD FOREIGN KEY (E_mail) REFERENCES customer(E_mail);
 
