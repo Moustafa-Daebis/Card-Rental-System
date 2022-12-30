@@ -8,7 +8,7 @@ create table office( office_id int, country varchar(225) not null, city varchar(
 
 create table car( plate_id varchar(255), brand varchar(255) not null, model varchar(255) not null, year year not null, price_per_day double not null, color varchar(255) not null, office_id int not null, carst varchar(255) not null, primary key (plate_id) );
 
-create table car_status( plate_id varchar(255), carst enum('available','rented','out of services') , time date default current_timestamp() , PRIMARY key (plate_id,time) );
+create table car_status( plate_id varchar(255), carst enum('available','rented','out of services') default available , time date default current_timestamp() , PRIMARY key (plate_id,time) );
 
 create table reservation( res_id int AUTO_INCREMENT , res_date date, E_mail varchar(255) not null, office_id int not null, plate_id varchar(225) not null, `from` date not null, `to` date not null, payment double not null, paid boolean not null, paid_date datetime not null, primary key (res_id,E_mail,plate_id,`from`,`to`) );
 
