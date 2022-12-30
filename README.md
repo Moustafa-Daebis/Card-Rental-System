@@ -2,7 +2,7 @@ use fproject;
 
 create table adMin( E_mail varchar(255), name varchar(255) not null, password varchar(225) not null, country varchar(225) not null, city varchar(225) not null, phone varchar(225) not null, primary key (E_mail), unique (phone) );
 
-create table customer( card_number int NOT Null, E_mail varchar(255), name varchar(255) not null, password varchar(225) not null, country varchar(225) not null, city varchar(225) not null, phone varchar(225) not null, address varchar(225) not null, primary key (E_mail), unique(phone) );
+create table customer( card_number int NOT Null, E_mail varchar(255), name varchar(255) not null, password varchar(225) not null, country varchar(225) not null, city varchar(225) not null, phone varchar(225) not null, address varchar(225) not null ,gender enum ('male','female'), primary key (E_mail), unique(phone) );
 
 create table office( office_id int, country varchar(225) not null, city varchar(225) not null, primary key (office_id) );
 
