@@ -10,7 +10,7 @@ create table car( plate_id varchar(255), brand varchar(255) not null, model varc
 
 create table car_status( plate_id varchar(255), carst enum('available','rented','out of services') default available , time date default current_timestamp() , PRIMARY key (plate_id,time) );
 
-create table reservation( res_id int AUTO_INCREMENT , res_date date, E_mail varchar(255) not null, office_id int not null, plate_id varchar(225) not null, `from` date not null, `to` date not null, payment double not null, paid boolean not null, paid_date datetime not null, primary key (res_id,E_mail,plate_id,`from`,`to`) );
+create table reservation( res_id int AUTO_INCREMENT , res_date date, E_mail varchar(255) not null, office_id int not null, plate_id varchar(225) not null, `from` date not null, `to` date not null, payment double not null, paid boolean not null, paid_date date not null, primary key (res_id,E_mail,plate_id,`from`,`to`) );
 
 
 ALTER TABLE reservation ADD FOREIGN KEY (E_mail) REFERENCES customer(E_mail);
