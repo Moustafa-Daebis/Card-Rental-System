@@ -61,6 +61,7 @@ $year = $_SESSION['year'];
 $model = $_SESSION['model'];
 $from = $_SESSION['from'];
 $to = $_SESSION['to'];
+$paid = $_SESSION['paid'];
 $conn=new mysqli("localhost","root","","fproject");
 if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
@@ -102,6 +103,7 @@ if(!empty($model)){
   else
       $query=$query." intersect ".$query4;
 }
+
 $result = mysqli_query($conn, $query);
 ?>
 <br>
@@ -156,10 +158,22 @@ if (mysqli_num_rows($result) > 0) {
  <?php } ?>
  </table>
  <?php
+ 
  for ($x = 0; $x <= $sn; $x++) {
   if(isset($_POST[$x])){
-  $query="INSERT INTO reservation (E_mail, plate_id, office_id,`from`,`to`) VALUES ('$E_mail', '$plates[$x]','$office_id','$from','$to')" or die(mysqli_error($conn));
+  $query5="SELECT DATEDIFF('".$to."','".$from."')*c.price_per_day as ppp from car as c where plate_id='".$plates[$x]."'";
+  $resulttt=mysqli_query($conn, $query5);
+  $payy=mysqli_fetch_assoc($resulttt);
+  $payy=$payy['ppp'];
+  $query="INSERT INTO reservation (E_mail, plate_id, office_id,`from`,`to`,paid,payment) VALUES ('$E_mail', '$plates[$x]','$office_id','$from','$to','$paid','$payy')" or die(mysqli_error($conn));
+  $query2="update reservation 
+  set paid_date = res_date
+  where paid='YES'" or die(mysqli_error($conn));
+
   mysqli_query($conn, $query);
+  mysqli_query($conn, $query2);
+
+
   
   echo "<script type='text/javascript'>alert('Car is reserved successfully');location='http://localhost/finalproject_car/customer/customer.php';</script></script>";
  }

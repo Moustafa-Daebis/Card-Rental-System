@@ -138,7 +138,7 @@ backdrop-filter: blur(10px);
                 <tr><td>office_id:</td><td><input type='int' name='office_id'placeholder="Enter office_id"/></td></tr>
 
               
-              <tr><td></td><td><input type='submit' name='submit' id="submit" value='Submit'/> <input type='button' name='back' id="back" value='back' onclick="window.location.href='http://localhost/admin.php'"/> <input type="reset"></td></tr> 
+              <tr><td></td><td><input type='submit' name='submit' id="submit" value='Submit'/> <input type='button' name='back' id="back" value='back' onclick="window.location.href='http://localhost/finalproject_car/admin/admin.php'"/> <input type="reset"></td></tr> 
                 </table>
         </form>
     </body>

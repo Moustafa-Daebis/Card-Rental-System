@@ -30,21 +30,7 @@ backdrop-filter: blur(10px);
            </style>
 
     
-            <script>
-                function validate(){
-                    alert("please choose an option")
-                    var x = document.forms["myForm"]["brand"].value;
-                    var y = document.forms["myForm"]["color"].value;
-                    var w = document.forms["myForm"]["year"].value;
-                    var z = document.forms["myForm"]["year"].value;
-                    if (x == "" && y == "" && z="" &&w=""){
-                        alert("please choose an option")
-                    return false
-                    
-                    }
-                    return true
-                }
-            </script>
+           
     </head>    
     <body>
    
@@ -60,30 +46,41 @@ backdrop-filter: blur(10px);
         <br>
         <form name="myForm"  onsubmit="return validate()" action="" method="post">
             <table cellspacing='5' align='center'>
-                <tr><td></td><td><input type='text' name='name' placeholder="Enter brand"/></td></tr>
-                <tr><td></td><td><input type='text' name='email'placeholder="Enter color"/></td></tr>
+                <tr><td></td><td><input type='text' name='name' placeholder="Enter name"/></td></tr>
+                <tr><td></td><td><input type='text' name='res_id' placeholder="Enter res_id"/></td></tr>
+                <tr><td></td><td><input type='text' name='E_mail'placeholder="Enter E_mail"/></td></tr>
                 <tr><td></td><td><input type="text" id="country" placeholder="Enter country"></td></tr>
-                <tr><td></td><td><input type="text"  name="model"  placeholder="Enter model"></td></tr>
+                <tr><td></td><td><input type="text"  name="city"  placeholder="Enter city"></td></tr>
                 <tr><td></td><td><input type="text"  name="address"  placeholder="Enter address"></td></tr>
                 <tr><td></td><td><input type="text"  name="gender"  placeholder="Enter gender"></td></tr>
-                <tr><td></td><td><input type='text' name='brand' placeholder="Enter plate id"/></td></tr>
+                <tr><td></td><td><input type='text' name='plate_id' placeholder="Enter plate id"/></td></tr>
                 <tr><td></td><td><input type='text' name='brand' placeholder="Enter brand"/></td></tr>
                 <tr><td></td><td><input type='text' name='color'placeholder="Enter color"/></td></tr>
                 <tr><td></td><td><input type="number" id="year" name="year" min="2001" max="2023"placeholder="year"></td></tr>
-                <tr><td></td><td><input type="text"  name="model"  placeholder="Enter model">
-                <tr><td></td><td><input type='text' name='day' placeholder="Enter reservation day"/></td></tr>
-                <tr><td></td><td><input type='submit' name='submit' id="submit" value='Submit'/> <input type='button' name='back' id="back" value='back' onclick="window.location.href='http://localhost/car_rental/admin.php'"/> <input type="reset"></td></tr> 
+                <tr><td></td><td><input type="text"  name="model"  placeholder="Enter model"></td></tr>
+                <tr><td></td><td><input type='date' name='day' placeholder="Enter reservation day"/></td></tr>
+                <tr><td></td><td><input type='submit' name='submit' id="submit" value='Submit'/> <input type='button' name='back' id="back" value='back' onclick="window.location.href='http://localhost/finalproject_car/admin/admin.php'"/> <input type="reset"></td></tr> 
                 </table>
         </form>
     </body>
 </html>
 <?php
 if(isset($_POST['submit'])){
-    $_SESSION['carbrand'] = $_POST['brand'];
-    $_SESSION['carcolor'] = $_POST['color'];
-    $_SESSION['caryear'] = $_POST['year'];
-    $_SESSION['carmodel'] = $_POST['model'];
-    echo "<script type='text/javascript'>;location='http://localhost/car_rental/adminsearchresults.php';</script></script>";
+    $_SESSION['E_mail'] = $_POST['E_mail'];
+    $_SESSION['name'] = $_POST['name'];
+    $_SESSION['res_id'] = $_POST['res_id'];
+
+    $_SESSION['country'] = $_POST['country'];
+    $_SESSION['city'] = $_POST['city'];
+    $_SESSION['address'] = $_POST['address'];
+    $_SESSION['gender'] = $_POST['gender'];
+    $_SESSION['plate_id'] = $_POST['plate_id'];
+    $_SESSION['brand'] = $_POST['brand'];
+    $_SESSION['color'] = $_POST['color'];
+    $_SESSION['model'] = $_POST['model'];
+    $_SESSION['year'] = $_POST['year'];
+    $_SESSION['day'] = $_POST['day'];
+    echo "<script type='text/javascript'>;location='http://localhost/finalproject_car/admin/adminsearchresults.php';</script></script>";
 }
 
 ?>

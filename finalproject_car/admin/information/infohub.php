@@ -65,28 +65,27 @@ backdrop-filter: blur(10px);
   <br>
   <br>
   <br>
-  <h1>Car rental services</h1>
+  <h1>information</h1>
   <br>
   <br>
 </div>
   <div class="container">
   <div class="center">
-      <button class="button" onclick="window.location.href='http://localhost/finalproject_car/admin/newcar.php'">
-      Add a new car
+  <button class="button" onclick="window.location.href='http://localhost/finalproject_car/admin/information/info1.php'">
+      All  reservations  within  a  specified  period
     </button>
-    <button class="button" onclick="window.location.href='http://localhost/finalproject_car/admin/updatecar.php'">
-      Update a car
+    <button class="button" onclick="window.location.href='http://localhost/finalproject_car/admin/information/info2.php'">
+    All  reservations  of   any   car  within  a  specified  period
     </button>
-    <button class="button" onclick="window.location.href='http://localhost/finalproject_car/admin/information/infohub.php'">
-      Infromation!
-    </button>
-    <button class="button" onclick="window.location.href='http://localhost/finalproject_car/admin/adminsearchhub.php'">
-      Advance search 
+    <button class="button" onclick="window.location.href='http://localhost/finalproject_car/admin/information/info3.php'">
+    The status of all cars on a specific day
     </button>
       <div class="center1">
-      <button class="button" onclick="window.location.href='http://localhost/finalproject_car/admin/office.php'">
-      Add an office
-    <button class="button"  onclick="window.location.href='http://localhost/finalproject_car/signinup/AdminLoginform.php'">
+      <button class="button" onclick="window.location.href='http://localhost/finalproject_car/admin/information/info4.php'">
+      All  reservations  of  specific  customer
+      <button class="button" onclick="window.location.href='http://localhost/finalproject_car/admin/information/info5.php'">
+      Daily payments within specific period
+    <button class="button"  onclick="window.location.href='http://localhost/finalproject_car/admin/admin.php'">
       Back
     </button>
     </div>

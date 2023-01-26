@@ -114,7 +114,7 @@ if(isset($_POST['submit']))
                 <option value="out of services">out of services</option>
                 </select>
             </td></tr>
-                <tr><td></td><td><input type='submit' name='submit' id="submit" value='Submit'/> <input type='button' name='back' id="back" value='back' onclick="window.location.href='http://localhost/admin.php'"/> <input type="reset"></td></tr> 
+                <tr><td></td><td><input type='submit' name='submit' id="submit" value='Submit'/> <input type='button' name='back' id="back" value='back' onclick="window.location.href='http://localhost/finalproject_car/admin/admin.php'"/> <input type="reset"></td></tr> 
                 
                 </table>
         </form>

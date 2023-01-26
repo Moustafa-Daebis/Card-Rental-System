@@ -63,10 +63,12 @@ $query="select * from customer where E_mail='".$_SESSION['E_mail']."'";
 $query2="select * from reservation where E_mail='".$_SESSION['E_mail']."'";
 $query3="select c.plate_id,c.brand,c.model,c.year,c.price_per_day,c.color from car as c Join reservation as r on r.plate_id=c.plate_id where r.E_mail='".$_SESSION['E_mail']."'";
 $query4="select count(res_id) from reservation as r where r.E_mail='".$_SESSION['E_mail']."'";
+
 $result = mysqli_query($conn, $query);
 $result2 = mysqli_query($conn, $query2);
 $result3= mysqli_query($conn, $query3);
 $result4= mysqli_query($conn, $query4);
+
 
 ?>
 <h1>Customer information</h1>
@@ -108,13 +110,21 @@ if (mysqli_num_rows($result) > 0) {
     <th>Plate ID</th>
     <th>Start date</th>
     <th>End date</th>
+    <th>reservation date</th>
     <th>Payment</th>
     <th>Paid</th>
     <th>Paid Date</th>
+    <th>pay</th>
+
+
   </tr>
   <?php
+  $res_ids=array();
+  $sn=0;
 if (mysqli_num_rows($result2) > 0) {
-        $data = mysqli_fetch_assoc($result2);
+  while($data = mysqli_fetch_assoc($result2)){ 
+    
+    $res_ids[$sn]=$data['res_id'];
         ?>
         <tr>
         <td><?php echo $data['res_id']; ?> </td>
@@ -123,12 +133,39 @@ if (mysqli_num_rows($result2) > 0) {
         <td><?php echo $data['plate_id']; ?> </td>
         <td><?php echo $data['from']; ?> </td>
         <td><?php echo $data['to']; ?> </td>
+        <td><?php echo $data['res_date']; ?> </td>
         <td><?php echo $data['payment']; ?> </td>
         <td><?php echo $data['paid']; ?> </td>
         <td><?php echo $data['paid_date']; ?> </td>
+        <form  method="post" action="">
+   <td> <input type="submit" name="<?php echo $sn; ?>" value="pay now" > </td>
+   
+  </form>
+ <tr>
         
         <?php
+          $sn++;
     }
+  }
+  for ($x = 0; $x <= $sn; $x++) {
+    if(isset($_POST[$x])){
+      $query="select paid from reservation where res_id='".$res_ids[$x]."'";
+      $result12 = mysqli_query($conn, $query);
+      $meow = mysqli_fetch_assoc($result12);
+      $ressss=$meow['paid'];
+      if ($ressss=='NO'){
+        $query55="update reservation set paid='YES'  where res_id='".$res_ids[$x]."'";
+        $query66="update reservation set paid_date=CURRENT_DATE()  where res_id='".$res_ids[$x]."'";
+        mysqli_query($conn, $query66);
+         mysqli_query($conn, $query55);
+         echo "<script type='text/javascript'>;location='http://localhost/finalproject_car/customer/customer_info.php';</script></script>";
+
+      }
+
+   
+   }
+
+  }
     ?>
   </table>
   <h1>Reserved Car Information</h1>

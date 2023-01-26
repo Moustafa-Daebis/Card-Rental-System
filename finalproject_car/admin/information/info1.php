@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 <html>
     <head>
@@ -32,11 +33,11 @@ backdrop-filter: blur(10px);
     
             <script>
                 function validate(){
+                    
                     var x = document.forms["myForm"]["from"].value;
                     var y = document.forms["myForm"]["to"].value;
-                    
                     if (x == "" && y == ""){
-                        alert("please choose a period")
+                        alert("please choose a date!")
                         return false
                     }
                     return true
@@ -45,16 +46,12 @@ backdrop-filter: blur(10px);
     </head>    
     <body>
     <?php
+    
     if(isset($_POST['submit'])){
-        $_SESSION['brand'] = $_POST['brand'];
-        $_SESSION['color'] = $_POST['color'];
-        $_SESSION['year'] = $_POST['year'];
-        $_SESSION['model'] = $_POST['model'];
         $_SESSION['from'] = $_POST['from'];
         $_SESSION['to'] = $_POST['to'];
-        $_SESSION['paid'] = $_POST['paid'];
-
-        echo "<script type='text/javascript'>;location='http://localhost/finalproject_car/customer/reservationresults.php';</script></script>";
+        
+        echo "<script type='text/javascript'>;location='http://localhost/finalproject_car/admin/information/result1.php';</script></script>";
     }
 
 ?>
@@ -63,25 +60,16 @@ backdrop-filter: blur(10px);
         </div>
         <br>
         <br>
-        <h1>Reserve a car</h1>
+        <h1>All  reservations  within  a  specified  period</h1>
         <br>
         <br>
         <br>
         <br>
         <form name="myForm"  onsubmit="return validate()" action="" method="post">
             <table cellspacing='5' align='center'>
-                <tr><td>brand:</td><td><input type='text' name='brand' placeholder="Enter brand"/></td></tr>
-                <tr><td>color:</td><td><input type='text' name='color'placeholder="Enter color"/></td></tr>
-                <tr><td>year:</td><td><input type="number" id="year" name="year" min="2001" max="2023">
-                <tr><td>model:</td><td><input type="text"  name="model"  placeholder="Enter model">
-                <tr><td>from:</td><td><input type="date"  name="from"  placeholder="Enter start time">
-                <tr><td>to:</td><td><input type="date"  name="to"  placeholder="Enter end time">
-                <tr><td>Pay now:                 <select name="paid" id="paid">
-                <option value="YES">    yes</option>
-                <option value="NO">    no</option>
-                </select>
-                </td><td> 
-                <tr><td></td><td><input type='submit' name='submit' id="submit" value='Submit'/> <input type='button' name='back' id="back" value='back' onclick="window.location.href='http://localhost/finalproject_car/customer/customer.php'"> <input type="reset"></td></tr> 
+                <tr><td>Start:</td><td><input type='date' name='from'/></td></tr>
+                <tr><td>End:</td><td><input type='date' name='to'/></td></tr>
+                <tr><td></td><td><input type='submit' name='submit' id="submit" value='Submit'/> <input type='button' name='back' id="back" value='back' onclick="window.location.href='http://localhost/finalproject_car/admin/information/infohub.php'"/> <input type="reset"></td></tr> 
                 </table>
         </form>
     </body>
